@@ -108,7 +108,9 @@
 	</distributionManagement>
 	
 	<build>
-		<finalName>bug-fix-tesla-app</finalName>
+
+		<finalName>master-tesla-app</finalName>
+
 		
 		<plugins>
 			<plugin>
