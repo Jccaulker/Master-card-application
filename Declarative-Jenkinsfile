@@ -7,15 +7,15 @@ pipeline {
         maven "maven3.8.6"
     }
     stages {
-        stage(‘1SCM’){
+        stage(‘1Getcode’){
             steps{
                 sh 'echo "apps latest version committed"'
 
-                git branch: 'dev', url: 'https://github.com/Serene7n/multi-pipeline.git'
+                git branch: 'dev', url: 'https://'
 
             }
         }
-        stage(‘2Build’){
+        stage(‘2Test+Build’){
             steps {
                 sh "mvn clean install"
                 }
