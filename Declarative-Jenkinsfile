@@ -11,7 +11,7 @@ pipeline {
             steps{
                 sh 'echo "apps latest version committed"'
 
-                git branch: 'dev', url: 'https://github.com/Serene7n/multi-pipeline.git'
+                git branch: 'master', url: 'https://github.com/Jccaulker/Master-card-application'
 
             }
         }
