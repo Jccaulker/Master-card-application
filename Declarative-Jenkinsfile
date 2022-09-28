@@ -11,7 +11,7 @@ pipeline {
             steps{
                 sh 'echo "apps latest version committed"'
 
-                git 'https://github.com/Jccaulker/Master-card-application'
+                git 'https://github.com/Jccaulker/Master-card-application.git'
 
             }
         }
