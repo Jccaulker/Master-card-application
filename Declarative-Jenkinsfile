@@ -11,26 +11,27 @@ pipeline {
             steps{
                 sh 'echo "apps latest version committed"'
 
-                git branch: 'dev', url: 'https://github.com/Jccaulker/Master-card-application'
+                git branch: 'master', url: 'https://github.com/Jccaulker/Master-card-application'
 
             }
         }
         stage('2Test+Build'){
             steps {
-                sh "mvn clean package"
+                sh "echo test and build packages"
+                sh "${mavenHome}/bin/mvn clean package"
                 }
             }
         
         stage(‘3QualityTest’){
             steps {
                 sh "echo 'quality test'"
-                sh "mvn sonar:sonar"
+                sh "${mavenHome}/bin/mvn sonar:sonar"
                 }
             }
         stage('4UploadArtifacts'){
             steps {
                 sh "echo 'Artifactory'"
-                sh "mvn deploy"
+                sh "${mavenHome}/bin/mvn deploy"
                 }
             }
         
