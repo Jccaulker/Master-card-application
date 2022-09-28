@@ -18,20 +18,20 @@ pipeline {
         stage('2Test+Build'){
             steps {
                 sh "echo test and build packages"
-                sh "${mavenHome}/bin/mvn clean package"
+                sh "mvn clean package"
                 }
             }
         
         stage(‘3QualityTest’){
             steps {
                 sh "echo 'quality test'"
-                sh "${mavenHome}/bin/mvn sonar:sonar"
+                sh "mvn sonar:sonar"
                 }
             }
         stage('4UploadArtifacts'){
             steps {
                 sh "echo 'Artifactory'"
-                sh "${mavenHome}/bin/mvn deploy"
+                sh "mvn deploy"
                 }
             }
         
