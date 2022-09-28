@@ -7,7 +7,7 @@ pipeline {
         maven "maven3.8.6"
     }
     stages {
-        stage(‘1SCM’){
+        stage(‘1Getcode’){
             steps{
                 sh 'echo "apps latest version committed"'
 
@@ -15,9 +15,9 @@ pipeline {
 
             }
         }
-        stage(‘2Build’){
+        stage(‘2Test+Build’){
             steps {
-                sh "mvn clean install"
+                sh "mvn clean package"
                 }
             }
         
