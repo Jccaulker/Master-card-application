@@ -7,7 +7,7 @@ pipeline {
         maven "maven3.8.6"
     }
     stages {
-        stage(‘1Getcode’){
+        stage('1Getcode'){
             steps{
                 sh 'echo "apps latest version committed"'
 
@@ -15,9 +15,9 @@ pipeline {
 
             }
         }
-        stage(‘2Test+Build’){
+        stage('2Test+Build'){
             steps {
-                sh "mvn clean install"
+                sh "mvn clean package"
                 }
             }
         
@@ -27,14 +27,14 @@ pipeline {
                 sh "mvn sonar:sonar"
                 }
             }
-        stage(‘4UploadArtifacts’){
+        stage('4UploadArtifacts'){
             steps {
                 sh "echo 'Artifactory'"
                 sh "mvn deploy"
                 }
             }
         
-          stage(‘UATDeploy’){
+          stage('UATDeploy'){
             steps {
                 sh "echo 'deploy to tomcat'"
                deploy adapters: [tomcat8(credentialsId: 'tomcat-credentials', path: '', url: 'http://3.88.84.73:8080/')], contextPath: null, war: 'target/*war'
