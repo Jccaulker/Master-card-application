@@ -11,7 +11,7 @@ pipeline {
             steps{
                 sh 'echo "apps latest version committed"'
 
-                git branch: 'dev', url: 'https://github.com/Jccaulker/Master-card-application/blob/dev/Declarative-Jenkinsfile'
+                git branch: 'master', url: 'https://github.com/Jccaulker/Master-card-application'
 
             }
         }
